@@ -49,21 +49,6 @@
               <product-card />
               <product-card />
               <product-card />
-              <!-- <div class="best__item">
-                <img src="@/assets/img/coffee-1.jpg" alt="coffee" />
-                <div class="best__item-title">Solimo Coffee Beans 2kg</div>
-                <div class="best__item-price">10.73$</div>
-              </div>
-              <div class="best__item">
-                <img src="@/assets/img/coffee-2.jpg" alt="coffee" />
-                <div class="best__item-title">Presto Coffee Beans 1kg</div>
-                <div class="best__item-price">15.99$</div>
-              </div>
-              <div class="best__item">
-                <img src="@/assets/img/coffee-3.jpg" alt="coffee" />
-                <div class="best__item-title">AROMISTICO Coffee 1kg</div>
-                <div class="best__item-price">6.99$</div>
-              </div> -->
             </div>
           </div>
         </div>
@@ -78,5 +63,29 @@ import ProductCard from "@/components/ProductCard.vue";
 
 export default {
   components: {NavBarComponent, ProductCard},
+  data() {
+    return {
+      bestsellers: [
+        {
+          id: 0,
+          name: "Solimo Coffee Beans 2kg",
+          price: 10.73,
+          image: "coffee-1.jpg",
+        },
+        {
+          id: 1,
+          name: "Presto Coffee Beans 1kg",
+          price: 15.99,
+          image: "coffee-2.jpg",
+        },
+        {
+          id: 2,
+          name: "AROMISTICO Coffee 1kg",
+          price: 6.99,
+          image: "coffee-3.jpg",
+        },
+      ],
+    };
+  },
 };
 </script>
