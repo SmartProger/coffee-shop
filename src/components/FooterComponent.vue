@@ -5,7 +5,9 @@
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
             <li class="footer__item">
-              <router-link to="/"><img src="@/assets/logo/Logo.svg" alt="logo" /></router-link>
+              <router-link to="/"
+                ><img src="@/assets/logo/Logo_black.svg" alt="logo"
+              /></router-link>
             </li>
             <li class="footer__item">
               <router-link to="/our-coffee">Our coffee</router-link>
