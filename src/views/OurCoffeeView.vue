@@ -91,7 +91,6 @@
         </div>
       </div>
     </section>
-    <footer-component />
   </main>
 </template>
 
