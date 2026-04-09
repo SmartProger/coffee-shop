@@ -54,7 +54,8 @@ export default {
       return this.$route.name;
     },
     card() {
-      return this.$store.getters["getProductById"](this.$route.params.id);
+      const pageGetter = this.pageName === "coffee" ? "getCoffeeById" : "getGoodsById";
+      return this.$store.getters[pageGetter](this.$route.params.id);
     },
   },
 };
