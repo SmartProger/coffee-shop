@@ -62,9 +62,9 @@ export default {
     goods() {
       return this.$store.getters["getGoods"];
     },
-    data() {
-      return {name: "goods"};
-    },
+  },
+  data() {
+    return {name: "goods"};
   },
   mixins: [navigate],
 };
