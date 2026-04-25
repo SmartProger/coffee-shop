@@ -40,7 +40,7 @@
                 type="text"
                 placeholder="start typing here..."
                 class="shop__search-input"
-                v-model="searchValue" />
+                @input="onSearch($event)" />
             </form>
           </div>
           <div class="col-lg-4">
@@ -76,6 +76,7 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
 import {navigate} from "@/mixins/navigate";
+import debounce from "debounce";
 
 export default {
   components: {NavBarComponent, ProductCard},
@@ -104,8 +105,26 @@ export default {
       });
   },
   methods: {
+    onSearch: debounce(function (event) {
+      fetch(`http://localhost:3000/coffee?name:contains=${event.target.value}`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.$store.dispatch("setCoffeeData", data);
+        });
+    }, 500),
+    // onSearch(event) {
+    //   fetch(`http://localhost:3000/coffee?name:contains=${event.target.value}`)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       this.$store.dispatch("setCoffeeData", data);
+    //     });
+    // },
     onSort(value) {
-      this.$store.dispatch("setSortValue", value);
+      fetch(`http://localhost:3000/coffee?country:contains=${value}`)
+        .then((res) => res.json())
+        .then((data) => {
+          this.$store.dispatch("setCoffeeData", data);
+        });
     },
   },
 };
