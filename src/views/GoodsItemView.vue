@@ -15,20 +15,20 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5 offset-1">
-            <img class="shop__girl" alt="coffee_item" :src="product.image" />
+            <img class="shop__girl" style="height: 20rem" alt="coffee_item" :src="product.image" />
           </div>
           <div class="col-lg-4">
             <div class="title">About it</div>
             <img class="beanslogo" src="@/assets/logo/Beans_logo_dark.svg" alt="Beans logo" />
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.country">
               <span>Country:</span>
               {{ product.country }}
             </div>
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.description">
               <span>Description:</span>
               {{ product.description }}
             </div>
-            <div class="shop__point">
+            <div class="shop__point" v-if="product.price">
               <span>Price:</span>
               <span class="shop__point-price"> {{ product.price }}</span>
             </div>
@@ -50,7 +50,7 @@ export default {
     };
   },
   mounted() {
-    fetch(`http://localhost:3000/coffee/${this.$route.params.id}`)
+    fetch(`http://localhost:3000/${this.pageName}/${this.$route.params.id}`)
       .then((res) => res.json())
       .then((data) => {
         this.product = data;
